@@ -1,0 +1,580 @@
+<!doctype html>
+<html lang="ro">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Asociația Copiii Vor — Acasă</title>
+  <meta name="description" content="Asociația Copiii Vor — susținem educația, creativitatea și bunăstarea copiilor. Implică-te sau donează pentru a susține proiectele noastre.">
+
+  <!-- Palette: slate-blue (#4B5C6C / #5D6D7E), warm-accent (#FF8A4B) -->
+  <style>
+    :root{
+      --bg:#f6f7f9;
+      --card:#ffffff;
+      --muted:#9aa6b2;
+      --primary-900:#2f4550;
+      --primary-700:#4b5c6c;
+      --primary-500:#5d6d7e;
+      --accent:#ff8a4b;
+      --glass: rgba(255,255,255,0.06);
+      --radius:16px;
+      --ease: cubic-bezier(.2,.9,.3,1);
+      --max-w:1200px;
+      font-family: 'Poppins', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+      color-scheme: light;
+    }
+
+    /* Reset */
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;background:linear-gradient(180deg,var(--bg),#eef3f6);
+      color:#0f1720;font-size:16px;line-height:1.45;-webkit-font-smoothing:antialiased;
+    }
+
+    a{color:inherit;text-decoration:none}
+
+    /* Skip link */
+    .skip-link{position:absolute;left:-999px;top:auto;width:1px;height:1px;overflow:hidden}
+    .skip-link:focus{position:fixed;left:16px;top:16px;background:#000;color:#fff;padding:8px 12px;border-radius:6px;z-index:2000}
+
+    .container{max-width:var(--max-w);margin:0 auto;padding:0 20px}
+
+    /* Header */
+    header{
+      backdrop-filter: blur(6px);
+      background: linear-gradient(180deg, rgba(255,255,255,0.6), rgba(255,255,255,0.35));
+      position:sticky;top:0;z-index:1200;border-bottom:1px solid rgba(15,23,32,0.06);
+    }
+    .header-inner{display:flex;align-items:center;justify-content:space-between;gap:20px;padding:14px 0}
+
+    /* Logo */
+    .logo{display:flex;align-items:center;gap:12px}
+    .logo svg{width:48px;height:48px}
+    .brand{font-weight:700;font-size:1.125rem;color:var(--primary-900)}
+    .tagline{font-size:0.9rem;color:var(--muted)}
+
+    /* Nav */
+    nav{display:flex;align-items:center;gap:18px}
+    .nav-links{display:flex;gap:12px;align-items:center}
+    .nav-links a{padding:8px 12px;border-radius:10px;color:var(--primary-700);font-weight:600}
+    .nav-links a:focus{outline:3px solid rgba(79,70,229,0.12)}
+
+    .btn{display:inline-flex;align-items:center;gap:8px;padding:10px 16px;border-radius:999px;font-weight:700}
+    .btn-primary{background:linear-gradient(90deg,var(--accent),#ff6f2d);color:white;box-shadow:0 8px 20px rgba(255,138,75,0.18);border:none}
+    .btn-ghost{background:transparent;border:1px solid rgba(79,70,229,0.04);color:var(--primary-700)}
+
+    /* Mobile menu */
+    .hamburger{display:none;background:transparent;border:none}
+
+    /* Hero */
+    .hero{position:relative;height:78vh;min-height:480px;display:flex;align-items:center}
+    .hero-media{position:absolute;inset:0;overflow:hidden;border-bottom-left-radius:24px;border-bottom-right-radius:24px}
+    .hero video{width:100%;height:100%;object-fit:cover;filter:brightness(0.45);display:block}
+    .hero-poster{position:absolute;inset:0;background-image:url('https://images.unsplash.com/photo-1542144612-1bde5b3b2a3f?q=80&w=1600&auto=format&fit=crop&ixlib=rb-4.0.3&s=');background-size:cover;background-position:center;filter:brightness(0.45)}
+
+    .hero-content{position:relative;z-index:3;padding:40px 0;color:#fff;text-align:left}
+    .hero-inner{display:flex;align-items:center;gap:40px;max-width:var(--max-w);margin:0 auto}
+    .hero-copy{flex:1}
+    .kicker{display:inline-block;background:rgba(255,255,255,0.08);padding:6px 10px;border-radius:999px;font-weight:700;color:#fff;margin-bottom:14px}
+    .hero h1{font-size:2.4rem;margin:0 0 8px;line-height:1.05}
+    .hero p{margin:0 0 18px;color:rgba(255,255,255,0.95);font-size:1.05rem}
+
+    .cta-row{display:flex;gap:12px}
+
+    /* Side panel for quick stats */
+    .hero-stats{width:320px;background:linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.03));backdrop-filter:blur(6px);padding:18px;border-radius:12px}
+    .stat{display:flex;justify-content:space-between;align-items:center;padding:10px 0}
+    .stat .num{font-size:1.45rem;font-weight:800;color:var(--accent)}
+    .stat .label{font-size:0.9rem;color:rgba(255,255,255,0.9)}
+
+    /* Sections */
+    section{padding:56px 0}
+    h2.section-title{font-size:1.6rem;margin:0 0 14px;color:var(--primary-700)}
+    p.lead{color:var(--muted);max-width:780px}
+
+    /* Misiune/Viziune/Valori */
+    .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:20px}
+    .card{background:var(--card);border-radius:12px;padding:18px;box-shadow:0 8px 20px rgba(15,23,32,0.04);min-height:140px}
+    .card h3{margin-top:6px;margin-bottom:8px;font-size:1.05rem}
+    .card p{color:var(--muted);font-size:0.95rem}
+
+    /* Projects */
+    .projects-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:18px}
+    .project{background:linear-gradient(180deg,#fff,#fcfdff);border-radius:12px;overflow:hidden;display:flex;flex-direction:column}
+    .project img{width:100%;height:180px;object-fit:cover}
+    .project-body{padding:14px;flex:1;display:flex;flex-direction:column}
+    .project-body h4{margin:0 0 8px}
+    .project-body p{flex:1;color:var(--muted)}
+    .project-actions{display:flex;gap:8px;align-items:center;margin-top:12px}
+
+    /* Testimonials */
+    .testimonials{display:flex;gap:12px;overflow:hidden}
+    .testimonial-card{background:linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.02));padding:16px;border-radius:12px;backdrop-filter:blur(4px);min-width:280px}
+    .testimonial-card p{font-style:italic;color:var(--primary-700)}
+
+    /* Transparency */
+    .transparency{display:grid;grid-template-columns:1fr 320px;gap:18px;align-items:start}
+    .bar{background:#e9eef3;border-radius:999px;height:14px;overflow:hidden}
+    .bar > i{display:block;height:100%;background:linear-gradient(90deg,var(--accent),#ff6f2d)}
+
+    /* Partners */
+    .partners{display:flex;gap:18px;flex-wrap:wrap;align-items:center}
+    .partner{width:120px;height:56px;display:flex;align-items:center;justify-content:center;background:#fff;border-radius:8px;box-shadow:0 6px 18px rgba(15,23,32,0.04)}
+
+    /* Timeline */
+    .timeline{position:relative;padding-left:28px}
+    .timeline:before{content:'';position:absolute;left:12px;top:0;bottom:0;width:2px;background:linear-gradient(180deg,var(--primary-700),var(--primary-500));border-radius:2px}
+    .timeline-item{position:relative;margin-bottom:20px;padding:10px 0}
+    .timeline-item .marker{position:absolute;left:-4px;top:6px;width:12px;height:12px;border-radius:50%;background:var(--accent);box-shadow:0 4px 10px rgba(0,0,0,0.12)}
+
+    /* FAQ */
+    .faq .q{background:var(--card);padding:14px;border-radius:10px;margin-bottom:8px}
+    .faq summary{cursor:pointer;font-weight:700}
+
+    /* Map */
+    .map{height:320px;border-radius:12px;overflow:hidden}
+
+    /* Footer */
+    footer{background:#0f1720;color:#fff;padding:36px 0;margin-top:20px}
+    footer .foot-grid{display:flex;justify-content:space-between;align-items:center;gap:16px}
+
+    /* Back to top */
+    .back-top{position:fixed;right:18px;bottom:18px;background:var(--primary-700);color:#fff;padding:10px;border-radius:999px;display:inline-flex;align-items:center;justify-content:center;box-shadow:0 10px 30px rgba(15,23,32,0.18);z-index:1200}
+
+    /* Responsive */
+    @media(max-width:1000px){
+      .grid{grid-template-columns:repeat(2,1fr)}
+      .projects-grid{grid-template-columns:repeat(2,1fr)}
+      .hero-inner{flex-direction:column}
+      .hero-stats{width:100%}
+      .transparency{grid-template-columns:1fr}
+    }
+    @media(max-width:640px){
+      nav{display:none}
+      .hamburger{display:block}
+      .grid{grid-template-columns:1fr}
+      .projects-grid{grid-template-columns:1fr}
+      .hero{height:auto;min-height:420px}
+      .hero h1{font-size:1.6rem}
+      .hero p{font-size:0.95rem}
+    }
+
+    /* Smooth interactions */
+    .fade-in{opacity:0;transform:translateY(8px);animation:fadeUp .7s var(--ease) forwards}
+    @keyframes fadeUp{to{opacity:1;transform:none}}
+
+  </style>
+</head>
+<body>
+  <a href="#main" class="skip-link">Sari la conținut</a>
+
+  <header aria-label="Antet site">
+    <div class="container header-inner">
+      <div class="logo">
+        <!-- Inline SVG logo (accessible) -->
+        <svg role="img" aria-labelledby="logoTitle logoDesc" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+          <title id="logoTitle">Logo Asociația Copiii Vor</title>
+          <desc id="logoDesc">Simbol stilizat: siluete copil și inimă</desc>
+          <defs>
+            <linearGradient id="g" x1="0" x2="1">
+              <stop offset="0" stop-color="#4b5c6c" />
+              <stop offset="1" stop-color="#5d6d7e" />
+            </linearGradient>
+          </defs>
+          <rect width="64" height="64" rx="12" fill="url(#g)" />
+          <g transform="translate(8,8)" fill="#fff">
+            <circle cx="12" cy="12" r="6" opacity="0.95" />
+            <path d="M34 10c-6 0-10 4-12 6 4 4 8 6 12 6s8-2 12-6c-2-2-6-6-12-6z" opacity="0.9"/>
+          </g>
+        </svg>
+        <div>
+          <div class="brand">Asociația Copiii Vor</div>
+          <div class="tagline">Vocea copilăriei — astăzi și mâine</div>
+        </div>
+      </div>
+
+     <nav aria-label="Navigare principală">
+    <div class="nav-links" role="navigation">
+        <a href="despre.html">Despre</a>
+        <a href="proiecte.html">Proiecte</a>
+        <a href="impact.html">Impact</a>
+        <a href="transparenta.html">Transparență</a>
+        <a href="contact.html">Contact</a>
+    </div>
+</nav>
+      <div style="display:flex;align-items:center;gap:10px">
+        <a class="btn btn-ghost" href="#implica-te">Implică‑te</a>
+        <a class="btn btn-primary" href="#donatii" aria-label="Donează acum">Donează</a>
+        <button class="hamburger" aria-label="Meniu mobil" title="Meniu mobil">☰</button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+    <!-- HERO -->
+    <section class="hero" aria-labelledby="hero-heading">
+      <div class="hero-media" aria-hidden="true">
+        <!-- Video optimized: add poster for fallback and preload='metadata' to avoid large downloads -->
+        <video autoplay muted loop playsinline preload="metadata" poster="https://images.unsplash.com/photo-1542144612-1bde5b3b2a3f?q=80&w=1600&auto=format&fit=crop&ixlib=rb-4.0.3&s=" aria-hidden="true">
+          <source src="https://cdn.coverr.co/videos/coverr-children-laughing-1590335207?token=eyJhbGciOiJIUzI1NiJ9" type="video/mp4">
+          <!-- If video fails, poster is visible -->
+        </video>
+      </div>
+
+      <div class="container hero-content">
+        <div class="hero-inner">
+          <div class="hero-copy fade-in" style="animation-delay:.1s">
+            <span class="kicker">Asociație pentru copii</span>
+            <h1 id="hero-heading">Fiecare copil merită o voce — și o șansă reală</h1>
+            <p class="lead">Facem pași concreți pentru a asigura acces la educație, sprijin emoțional și activități care dezvoltă potențialul fiecărui copil. Susține proiectele noastre — impactul este transparent și imediat.</p>
+
+            <div class="cta-row" role="region" aria-label="Acțiuni principale">
+              <a class="btn btn-primary" href="#donatii">Donează acum</a>
+              <a class="btn btn-ghost" href="#implica-te">Devino voluntar</a>
+            </div>
+
+            <div style="margin-top:16px;color:rgba(255,255,255,0.85);font-weight:600">Slogan: <span style="color:var(--accent)">Vocea copilăriei, schimbarea comunității</span></div>
+          </div>
+
+          <aside class="hero-stats fade-in" style="animation-delay:.2s" aria-label="Statistici rapide">
+            <div class="stat"><div><div style="font-size:0.9rem;color:rgba(255,255,255,0.85)">Copii sprijiniți</div></div><div class="num" data-target="1200">0</div></div>
+            <div class="stat"><div style="font-size:0.9rem;color:rgba(255,255,255,0.85)">Voluntari</div><div class="num" data-target="180">0</div></div>
+            <div class="stat"><div style="font-size:0.9rem;color:rgba(255,255,255,0.85)">Proiecte</div><div class="num" data-target="45">0</div></div>
+            <div style="margin-top:12px;text-align:center"><a class="btn btn-ghost" href="#transparență">Vezi transparența</a></div>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <!-- DESPRE: misiune, viziune, valori -->
+    <section id="despre" class="container" aria-labelledby="despre-title">
+      <h2 id="despre-title" class="section-title">Cine suntem</h2>
+      <p class="lead">Asociația Copiii Vor susține copiii din medii vulnerabile prin programe educaționale, intervenții sociale și activități de dezvoltare personală. Ne ghidăm prin valori clare și măsurăm impactul pentru a oferi încredere donatorilor și partenerilor.</p>
+
+      <div class="grid">
+        <article class="card" aria-labelledby="misiune">
+          <svg aria-hidden="true" width="36" height="36" viewBox="0 0 24 24"><path fill="var(--primary-700)" d="M12 2L2 7l10 5 10-5-10-5z"/></svg>
+          <h3 id="misiune">Misiune</h3>
+          <p>Creăm programe sustenabile care asigură acces la educație non-formală, sprijin psihologic și resurse materiale pentru copii și familiile lor.</p>
+        </article>
+
+        <article class="card" aria-labelledby="viziune">
+          <svg aria-hidden="true" width="36" height="36" viewBox="0 0 24 24"><path fill="var(--primary-700)" d="M12 4a8 8 0 1 0 .001 16.001A8 8 0 0 0 12 4z"/></svg>
+          <h3 id="viziune">Viziune</h3>
+          <p>Să construim o comunitate în care fiecare copil are acces la instrumentele necesare pentru a-și atinge potențialul, independent de contextul social.</p>
+        </article>
+
+        <article class="card" aria-labelledby="valori">
+          <svg aria-hidden="true" width="36" height="36" viewBox="0 0 24 24"><path fill="var(--primary-700)" d="M12 21l-8-5V6l8-5 8 5v10z"/></svg>
+          <h3 id="valori">Valori</h3>
+          <p>Transparență, responsabilitate, empatie și colaborare — acestea ne ghidează deciziile și modul în care ne raportăm la beneficiari.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- IMPACT + TIMELINE + VIDEO -->
+    <section id="impact" class="container" aria-labelledby="impact-title">
+      <h2 id="impact-title" class="section-title">Impact & Realizări</h2>
+      <p class="lead">Măsurăm rezultatele prin indicatori clari — copii înscriși, frecvență la programe, îmbunătățiri academice și feedback de la familii.</p>
+
+      <div style="display:flex;gap:24px;align-items:flex-start;flex-wrap:wrap;margin-top:18px">
+        <div style="flex:1;min-width:320px">
+          <div class="timeline" aria-hidden="false">
+            <div class="timeline-item">
+              <div class="marker" aria-hidden="true"></div>
+              <div><strong>2023</strong> — Lansare program „Ateliere de vară” pentru 300 copii.</div>
+            </div>
+            <div class="timeline-item">
+              <div class="marker"></div>
+              <div><strong>2024</strong> — Parteneriat strategic cu 5 școli locale.</div>
+            </div>
+            <div class="timeline-item">
+              <div class="marker"></div>
+              <div><strong>2025</strong> — Extindere program sprijin familial și consiliere.</div>
+            </div>
+          </div>
+        </div>
+
+        <div style="width:360px">
+          <div style="background:var(--card);padding:12px;border-radius:12px;box-shadow:0 8px 20px rgba(15,23,32,0.04)">
+            <h3 style="margin:8px 0">Video de prezentare</h3>
+            <!-- Lightweight player: use <video> with controls; replace src with actual MP4 or embed YouTube -->
+            <video controls playsinline preload="metadata" style="width:100%;border-radius:8px" poster="https://images.unsplash.com/photo-1525186402429-14b5ba5f0c27?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.0.3&s=">
+              <source src="https://cdn.coverr.co/videos/coverr-charity-1590335199?token=eyJhbGciOiJIUzI1NiJ9" type="video/mp4">
+              Acest browser nu suportă elementul video.
+            </video>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section id="proiecte" class="container" aria-labelledby="proiecte-title">
+      <h2 id="proiecte-title" class="section-title">Proiecte active</h2>
+      <p class="lead">Proiectele noastre sunt gândite pentru impact pe termen lung și susținute prin monitorizare constantă.</p>
+
+      <div class="projects-grid" role="list">
+        <article class="project" role="listitem" aria-labelledby="p1">
+          <img src="https://images.unsplash.com/photo-1588774069163-6f4454d9f298?q=80&w=1400&auto=format&fit=crop&ixlib=rb-4.0.3&s=" alt="Copii la ateliere educaționale" loading="lazy">
+          <div class="project-body">
+            <h4 id="p1">Ateliere Educaționale</h4>
+            <p>Ateliere practice de citire, matematică creativă și dezvoltare a abilităților socio‑emoționale.</p>
+            <div class="project-actions">
+              <a class="btn btn-ghost" href="#">Vezi detalii</a>
+              <a class="btn btn-primary" href="#donatii">Susține proiectul</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="project" role="listitem" aria-labelledby="p2">
+          <img src="https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?q=80&w=1400&auto=format&fit=crop&ixlib=rb-4.0.3&s=" alt="Sprijin familial" loading="lazy">
+          <div class="project-body">
+            <h4 id="p2">Sprijin Familial</h4>
+            <p>Pachete de sprijin, consiliere și legături cu servicii medicale și sociale.</p>
+            <div class="project-actions">
+              <a class="btn btn-ghost" href="#">Vezi detalii</a>
+              <a class="btn btn-primary" href="#implica-te">Implică‑te</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="project" role="listitem" aria-labelledby="p3">
+          <img src="https://images.unsplash.com/photo-1509062522246-3755977927d7?q=80&w=1400&auto=format&fit=crop&ixlib=rb-4.0.3&s=" alt="Tabere pentru copii" loading="lazy">
+          <div class="project-body">
+            <h4 id="p3">Tabere de vară</h4>
+            <p>Tabere care dezvoltă autonomie, creativitate și spirit de echipă.</p>
+            <div class="project-actions">
+              <a class="btn btn-ghost" href="#">Vezi detalii</a>
+              <a class="btn btn-primary" href="#donatii">Donează</a>
+            </div>
+          </div>
+        </article>
+      </div>
+
+    </section>
+
+    <!-- TRANSPARENȚĂ FINANCIARĂ -->
+    <section id="transparență" class="container" aria-labelledby="trans-title">
+      <h2 id="trans-title" class="section-title">Transparență financiară</h2>
+      <p class="lead">Ne angajăm să utilizăm fondurile în mod eficient. Iată cum sunt direcționate donațiile în ultimul an.</p>
+
+      <div class="transparency">
+        <div>
+          <div class="card">
+            <h3>Distribuția bugetului</h3>
+            <div style="margin-top:12px">
+              <div style="display:flex;justify-content:space-between;font-weight:700"><div>Programe</div><div>62%</div></div>
+              <div class="bar" style="margin:8px 0"><i style="width:62%"></i></div>
+
+              <div style="display:flex;justify-content:space-between;font-weight:700"><div>Logistică & Resurse</div><div>20%</div></div>
+              <div class="bar" style="margin:8px 0"><i style="width:20%"></i></div>
+
+              <div style="display:flex;justify-content:space-between;font-weight:700"><div>Administrație</div><div>10%</div></div>
+              <div class="bar" style="margin:8px 0"><i style="width:10%"></i></div>
+
+              <div style="display:flex;justify-content:space-between;font-weight:700"><div>Fond de urgență</div><div>8%</div></div>
+              <div class="bar" style="margin:8px 0"><i style="width:8%"></i></div>
+            </div>
+
+            <div style="margin-top:14px;display:flex;gap:10px;align-items:center">
+              <a class="btn btn-ghost" href="#">Rapoarte anuale</a>
+              <a class="btn btn-primary" href="#donatii">Donează</a>
+            </div>
+          </div>
+        </div>
+
+        <aside>
+          <div class="card">
+            <h3>Parteneri & Sponsori</h3>
+            <div class="partners" style="margin-top:12px">
+              <div class="partner" aria-label="Logo partener A"><img src="https://dummyimage.com/100x40/ddd/aaa.png&text=LOGO" alt="Logo partener A" loading="lazy"></div>
+              <div class="partner" aria-label="Logo partener B"><img src="https://dummyimage.com/100x40/ddd/aaa.png&text=LOGO" alt="Logo partener B" loading="lazy"></div>
+              <div class="partner" aria-label="Logo partener C"><img src="https://dummyimage.com/100x40/ddd/aaa.png&text=LOGO" alt="Logo partener C" loading="lazy"></div>
+            </div>
+
+            <div style="margin-top:12px">
+              <a class="btn btn-ghost" href="#">Certificate & Acte</a>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <!-- IMPLICA-TE -->
+    <section id="implica-te" class="container" aria-labelledby="implica-title">
+      <h2 id="implica-title" class="section-title">Modalități de implicare</h2>
+      <p class="lead">Alege cum dorești să susții: donații unice, donații recurente, voluntariat sau parteneriate corporate.</p>
+
+      <div class="grid" style="margin-top:14px">
+        <div class="card">
+          <h3>Donații</h3>
+          <p>Poți contribui direct la proiecte sau la fondul general al asociației.</p>
+          <div style="margin-top:12px"><a class="btn btn-primary" href="#donatii">Donează</a></div>
+        </div>
+
+        <div class="card">
+          <h3>Voluntariat</h3>
+          <p>Alătură-te echipei noastre — oferim formare și roluri clare pentru voluntari.</p>
+          <div style="margin-top:12px"><a class="btn btn-ghost" href="#">Completează formular</a></div>
+        </div>
+
+        <div class="card">
+          <h3>Parteneriate</h3>
+          <p>Colaborăm cu organizații și companii pentru proiecte scalabile.</p>
+          <div style="margin-top:12px"><a class="btn btn-ghost" href="#">Contactează-ne</a></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq" class="container" aria-labelledby="faq-title">
+      <h2 id="faq-title" class="section-title">Întrebări frecvente</h2>
+      <div class="faq" style="margin-top:12px">
+        <details class="q"><summary>Cum pot dona?</summary><div style="margin-top:8px;color:var(--muted)">Acceptăm donații prin card, transfer bancar și platforme de strângere de fonduri. Toate tranzacțiile sunt securizate.</div></details>
+        <details class="q"><summary>Unde merg donațiile mele?</summary><div style="margin-top:8px;color:var(--muted)">Donațiile merg către programe (62%), logistică (20%), administrație (10%) și fond de urgență (8%).</div></details>
+        <details class="q"><summary>Pot deveni voluntar?</summary><div style="margin-top:8px;color:var(--muted)">Da — completează formularul nostru de voluntariat. Oferim training și suport continuu.</div></details>
+      </div>
+    </section>
+
+    <!-- HARTA -->
+    <section id="unde" class="container" aria-labelledby="map-title">
+      <h2 id="map-title" class="section-title">Unde activăm</h2>
+      <p class="lead">Zonele în care avem programe active. Harta arată locațiile centrelor și proiectelor noastre.</p>
+      <div class="map" style="margin-top:12px">
+        <!-- Replace src with actual Google Maps embed or Leaflet implementation -->
+        <iframe title="Harta activități" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2739.1234567890123!2d26.10253731531616!3d44.42676797910286!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40b1ff0000000001%3A0x0000000000000000!2sBucharest%2C%20Romania!5e0!3m2!1sen!2s!4v1590000000000" width="100%" height="100%" style="border:0;" allowfullscreen loading="lazy"></iframe>
+      </div>
+    </section>
+
+    <!-- TESTIMONIALE CAROUSEL -->
+    <section id="testimoniale" class="container" aria-labelledby="test-title">
+      <h2 id="test-title" class="section-title">Ce spun oamenii</h2>
+      <p class="lead">Feedback real de la beneficiari și voluntari.</p>
+      <div class="testimonials" style="margin-top:12px">
+        <div class="testimonial-card" role="article">
+          <p>„Atelierele au transformat modul în care copilul meu se raportează la învățare.”<br><strong>— Andreea</strong></p>
+        </div>
+        <div class="testimonial-card" role="article">
+          <p>„Voluntariatul m-a ajutat să înțeleg ce înseamnă cu adevărat impactul.”<br><strong>— Ioan</strong></p>
+        </div>
+        <div class="testimonial-card" role="article">
+          <p>„Am văzut progrese reale în comunitatea noastră.”<br><strong>— Maria</strong></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT & SOCIAL -->
+    <section id="contact" class="container" aria-labelledby="contact-title">
+      <h2 id="contact-title" class="section-title">Contact</h2>
+      <div style="display:flex;gap:18px;flex-wrap:wrap;align-items:flex-start">
+        <div style="flex:1;min-width:280px">
+          <div class="card">
+            <h3>Informații</h3>
+            <p style="color:var(--muted)">Email: <a href="mailto:contact@copiiivor.ro">contact@copiiivor.ro</a><br>Telefon: 07xx xxx xxx</p>
+            <div style="display:flex;gap:8px;margin-top:10px">
+              <a aria-label="Facebook" href="#"><svg width="20" height="20" viewBox="0 0 24 24"><path fill="#3b5998" d="M22 12.07C22 6.49 17.52 2 12 2S2 6.49 2 12.07C2 17.09 5.66 21.2 10.38 21.95v-7.01H7.9v-2.87h2.48V9.41c0-2.45 1.46-3.8 3.68-3.8 1.07 0 2.19.19 2.19.19v2.41h-1.23c-1.21 0-1.58.75-1.58 1.52v1.82h2.69l-.43 2.87H13.4v7.01C18.12 21.2 22 17.09 22 12.07z"/></svg></a>
+              <a aria-label="Instagram" href="#"><svg width="20" height="20" viewBox="0 0 24 24"><path fill="#e4405f" d="M7 2h10a5 5 0 015 5v10a5 5 0 01-5 5H7a5 5 0 01-5-5V7a5 5 0 015-5zm5 6a5 5 0 105 5 5 5 0 00-5-5z"/></svg></a>
+            </div>
+          </div>
+        </div>
+
+        <div style="width:360px">
+          <div class="card">
+            <h3>Rapoarte & acte</h3>
+            <p style="color:var(--muted)">Accesează rapoartele noastre anuale și documentele oficiale pentru a verifica modul în care gestionăm fondurile.</p>
+            <a class="btn btn-ghost" href="#">Rapoarte</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <div class="container">
+      <div style="display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap">
+        <div style="display:flex;gap:12px;align-items:center">
+          <svg width="36" height="36" viewBox="0 0 24 24" aria-hidden="true"><path fill="#fff" d="M12 2L2 7l10 5 10-5z"/></svg>
+          <div>
+            <strong>Asociația Copiii Vor</strong><br>
+            <small style="color:rgba(255,255,255,0.8)">© 2025 • Toate drepturile rezervate</small>
+          </div>
+        </div>
+
+        <div style="display:flex;gap:14px;align-items:center">
+          <a href="#donatii" class="btn btn-primary">Donează</a>
+          <a href="#contact" class="btn btn-ghost">Contact</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <button class="back-top" aria-label="Înapoi sus" title="Înapoi sus" onclick="scrollToTop()" style="display:none">↑</button>
+
+  <script>
+    // Small utility scripts: counters, back-to-top, accessible interactions
+
+    // Counter animation (digit-by-digit safe increment)
+    document.querySelectorAll('[data-target]').forEach(el => {
+      const target = Number(el.getAttribute('data-target')) || 0;
+      let current = 0;
+      const step = Math.max(1, Math.floor(target / 120));
+      const tick = () => {
+        current += step;
+        if (current < target) {
+          el.textContent = current.toLocaleString('ro-RO');
+          requestAnimationFrame(tick);
+        } else {
+          el.textContent = target.toLocaleString('ro-RO');
+        }
+      };
+      tick();
+    });
+
+    // Back to top visibility
+    const backTop = document.querySelector('.back-top');
+    const showBackTop = () => {
+      if (window.scrollY > 400) backTop.style.display = 'inline-flex'; else backTop.style.display = 'none';
+    };
+    window.addEventListener('scroll', showBackTop);
+    function scrollToTop(){ window.scrollTo({top:0,behavior:'smooth'}); }
+
+    // Simple testimonials auto-scroll
+    (function(){
+      const wrap = document.querySelector('.testimonials');
+      if(!wrap) return;
+      let idx = 0;
+      const cards = Array.from(wrap.children);
+      function rotate(){
+        idx = (idx+1)%cards.length;
+        cards.forEach((c,i)=>{ c.style.transform = `translateX(${(i-idx)*104}%)`; c.style.transition='transform .7s var(--ease)'; });
+      }
+      // init positions
+      cards.forEach((c,i)=>{ c.style.transform = `translateX(${i*104}%)`; });
+      setInterval(rotate,4500);
+    })();
+
+    // Simple mobile nav toggle
+    document.querySelector('.hamburger')?.addEventListener('click',function(){
+      const nav = document.querySelector('nav');
+      if(nav.style.display==='flex'){nav.style.display='none'}else{nav.style.display='flex';nav.style.position='absolute';nav.style.right='20px';nav.style.top='64px';nav.style.background='rgba(255,255,255,0.98)';nav.style.padding='12px';nav.style.borderRadius='12px';nav.style.boxShadow='0 8px 30px rgba(15,23,32,0.12)'}
+    });
+
+    // Accessibility: ensure details/summary keyboard support
+    document.querySelectorAll('details').forEach(d => {
+      d.addEventListener('keydown', e => { if(e.key === 'Enter' || e.key === ' ') { e.preventDefault(); d.open = !d.open; } });
+    });
+
+    // Prefetch images for perceived performance (non-blocking)
+    const imgs = Array.from(document.querySelectorAll('img[loading="lazy"]')).slice(0,6);
+    imgs.forEach(i=>{ const pre = new Image(); pre.src = i.src; });
+
+    // NOTE: Replace dummy links and images with real assets before publishing.
+  </script>
+</body>
+</html>
+
+
+
+
