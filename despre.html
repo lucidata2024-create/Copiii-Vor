@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Despre - Asociația Copiii Vor</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Poppins', sans-serif;
+            background-color: #f5f7fa;
+            color: #333;
+            overflow-x: hidden;
+        }
+
+        a { text-decoration: none; color: inherit; }
+
+        header {
+            background: linear-gradient(135deg, #4B5C6C, #5D6D7E);
+            padding: 15px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 1.8em;
+            font-weight: 600;
+            color: #fff;
+        }
+
+        nav a {
+            margin-left: 20px;
+            font-weight: 600;
+            font-size: 1em;
+            color: #fff;
+            transition: 0.3s ease;
+        }
+
+        nav a:hover {
+            opacity: 0.8;
+            transform: scale(1.1);
+        }
+
+        .cta-donate {
+            background-color: #f2994a;
+            color: #fff;
+            padding: 10px 20px;
+            border-radius: 30px;
+            font-weight: 600;
+            transition: 0.3s ease;
+        }
+
+        .cta-donate:hover {
+            transform: scale(1.1);
+            background-color: #f5a55a;
+        }
+
+        .hero {
+            background: url('https://images.unsplash.com/photo-1571171637578-41bc2dd41cd2?auto=format&fit=crop&w=1470&q=80') center/cover no-repeat;
+            height: 60vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: #fff;
+            position: relative;
+        }
+
+        .hero::after {
+            content: "";
+            position: absolute;
+            top:0; left:0; right:0; bottom:0;
+            background: rgba(0,0,0,0.5);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero h2 {
+            font-size: 3em;
+            margin: 0 0 15px 0;
+        }
+
+        .hero p {
+            font-size: 1.2em;
+        }
+
+        .section {
+            padding: 60px 20px;
+            max-width: 1100px;
+            margin: auto;
+        }
+
+        .section h3 {
+            font-size: 2.2em;
+            margin-bottom: 15px;
+            color: #4B5C6C;
+            text-align: center;
+        }
+
+        .section p {
+            font-size: 1.1em;
+            line-height: 1.8em;
+            text-align: center;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .cards {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            margin-top: 40px;
+        }
+
+        .card {
+            background: #fff;
+            width: 300px;
+            padding: 25px;
+            margin: 15px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 12px 25px rgba(0,0,0,0.15);
+        }
+
+        .card img {
+            width: 60px;
+            margin-bottom: 15px;
+        }
+
+        .card h4 {
+            margin-bottom: 10px;
+            color: #4B5C6C;
+        }
+
+        .card p {
+            font-size: 1em;
+        }
+
+        .cta-section {
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        .cta-section a {
+            display: inline-block;
+            background-color: #f2994a;
+            color: #fff;
+            padding: 12px 30px;
+            border-radius: 30px;
+            font-weight: 600;
+            transition: 0.3s ease;
+        }
+
+        .cta-section a:hover {
+            background-color: #f5a55a;
+            transform: scale(1.05);
+        }
+
+        footer {
+            background: #4B5C6C;
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+
+        @media (max-width: 768px) {
+            .cards {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .hero h2 {
+                font-size: 2em;
+            }
+
+            .hero p {
+                font-size: 1em;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <h1>Asociația Copiii Vor</h1>
+    <nav aria-label="Navigare principală">
+        <div class="nav-links" role="navigation">
+            <a href="index.html">Acasă</a>
+            <a href="despre.html">Despre</a>
+            <a href="proiecte.html">Proiecte</a>
+            <a href="impact.html">Impact</a>
+            <a href="transparenta.html">Transparență</a>
+            <a href="contact.html">Contact</a>
+            <a class="cta-donate" href="donatii.html">Donează</a>
+        </div>
+    </nav>
+</header>
+
+<div class="hero">
+    <div class="hero-content">
+        <h2>Cine suntem</h2>
+        <p>Promovăm educația, sprijinul social și dezvoltarea armonioasă a copiilor din România.</p>
+    </div>
+</div>
+
+<section id="misiune" class="section">
+    <h3>Misiunea noastră</h3>
+    <p>Sprijinim copiii prin programe educaționale, ateliere creative și inițiative care le oferă oportunități reale de dezvoltare personală.</p>
+</section>
+
+<section id="viziune" class="section">
+    <h3>Viziunea</h3>
+    <p>Să construim o comunitate în care fiecare copil are șansa de a se dezvolta într-un mediu sigur, educativ și stimulativ.</p>
+</section>
+
+<section id="valori" class="section">
+    <h3>Valorile noastre</h3>
+    <div class="cards">
+        <div class="card">
+            <img src="https://img.icons8.com/color/96/000000/heart.png" alt="Empatie">
+            <h4>Empatie</h4>
+            <p>Punem accent pe înțelegerea și susținerea fiecărui copil în parte.</p>
+        </div>
+        <div class="card">
+            <img src="https://img.icons8.com/color/96/000000/idea.png" alt="Creativitate">
+            <h4>Creativitate</h4>
+            <p>Inovăm în programe și metode pentru dezvoltarea copiilor.</p>
+        </div>
+        <div class="card">
+            <img src="https://img.icons8.com/color/96/000000/community.png" alt="Comunitate">
+            <h4>Comunitate</h4>
+            <p>Construim relații solide între copii, părinți și voluntari.</p>
+        </div>
+    </div>
+</section>
+
+<section id="impact" class="section">
+    <h3>Impactul nostru</h3>
+    <p>Peste 1200 de copii au beneficiat de programele noastre, susținuți de 180 de voluntari dedicați. Proiectele noastre continuă să aducă schimbări reale în comunitate.</p>
+</section>
+
+<div class="cta-section">
+    <a href="donatii.html">Contribuie acum</a>
+</div>
+
+<footer>
+    <p>Email: contact@copiiivor.ro • Telefon: 07xx xxx xxx</p>
+    <p>© 2025 Asociația Copiii Vor</p>
+</footer>
+
+</body>
+</html>
